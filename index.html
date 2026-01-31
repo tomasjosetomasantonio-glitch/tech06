@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <title>Campanha de Ideias - Tomaz</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #121212; /* fundo escuro */
+      margin: 0;
+      padding: 0;
+      color: #e0e0e0; /* texto claro */
+    }
+
+    header {
+      background: #1f1f1f;
+      color: #e0e0e0;
+      padding: 15px;
+      text-align: center;
+      font-size: 22px;
+      font-weight: bold;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    header img {
+      height: 40px;
+    }
+
+    .container {
+      background: #1e1e1e;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.6);
+      padding: 30px;
+      width: 400px;
+      margin: 40px auto;
+      text-align: center;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    h1 {
+      color: #ffffff;
+      margin-bottom: 10px;
+    }
+
+    p {
+      color: #bbbbbb;
+      margin-bottom: 20px;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      border-radius: 8px;
+      border: 1px solid #444;
+      margin-bottom: 15px;
+      font-size: 14px;
+      background: #2a2a2a;
+      color: #e0e0e0;
+    }
+
+    button {
+      background: #4facfe;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background: #00c6fb;
+      transform: scale(1.05);
+    }
+
+    footer {
+      text-align: center;
+      padding: 15px;
+      background: #1f1f1f;
+      margin-top: 30px;
+      font-size: 14px;
+      color: #888;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0; transform: translateY(-20px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="logo.png" alt="Logo"> <!-- coloque seu arquivo de logo -->
+    Campanha de Ideias
+  </header>
+
+  <div class="container">
+    <h1>Preciso de sua Ajuda!</h1>
+    <p>Nos negócios, no ginásio, na escola ou no dia a dia, qual é a maior dificuldade que você enfrenta e acha que a tecnologia poderia ajudar? 💡</p>
+    <form id="form">
+      <input type="text" id="nome" placeholder="Seu nome">
+      <textarea id="resposta" rows="4" placeholder="Digite  aqui sua dificuldade..."></textarea><br>
+      <button type="submit">Enviar pelo WhatsApp</button>
+    </form>
+    <p id="feedback" style="color:#4caf50; font-weight:bold; display:none;">✅ Obrigado pela sua ideia!</p>
+  </div>
+
+  <footer>
+    📱 WhatsApp:869276546  
+    <br>© 2026 Agencia Desevolvidora: Tomaz Tech
+  </footer>
+
+  <script>
+    document.getElementById("form").addEventListener("submit", function(e){
+      e.preventDefault();
+      let nome = document.getElementById("nome").value;
+      let resposta = document.getElementById("resposta").value;
+
+      let mensagem = "Nova ideia recebida:%0A";
+      if(nome) mensagem += "Nome: " + nome + "%0A";
+      mensagem += "Ideia: " + resposta;
+
+      let numero = "258869276546"; // coloque seu número com código do país
+      let url = "https://wa.me/" + numero + "?text=" + mensagem;
+      window.open(url, "_blank");
+
+      document.getElementById("feedback").style.display = "block";
+    });
+  </script>
+</body>
+</html>
