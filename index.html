@@ -2,14 +2,15 @@
 <html lang="pt">
 <head>
   <meta charset="UTF-8">
-  <title>Campanha de Ideias - Tomaz</title>
+  <title>Campanha de Ideias - Tomas</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- responsivo -->
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
-      background: #121212; /* fundo escuro */
+      background: #121212;
       margin: 0;
       padding: 0;
-      color: #e0e0e0; /* texto claro */
+      color: #e0e0e0;
     }
 
     header {
@@ -24,6 +25,7 @@
       align-items: center;
       justify-content: center;
       gap: 10px;
+      flex-wrap: wrap; /* permite quebrar linha no celular */
     }
 
     header img {
@@ -35,7 +37,8 @@
       border-radius: 12px;
       box-shadow: 0 8px 20px rgba(0,0,0,0.6);
       padding: 30px;
-      width: 400px;
+      width: 90%;       /* ocupa quase toda tela no celular */
+      max-width: 500px; /* limite no desktop */
       margin: 40px auto;
       text-align: center;
       animation: fadeIn 1s ease-in-out;
@@ -57,7 +60,7 @@
       border-radius: 8px;
       border: 1px solid #444;
       margin-bottom: 15px;
-      font-size: 14px;
+      font-size: 1rem;
       background: #2a2a2a;
       color: #e0e0e0;
     }
@@ -69,8 +72,9 @@
       padding: 12px 20px;
       border-radius: 8px;
       cursor: pointer;
-      font-size: 16px;
+      font-size: 1rem;
       transition: 0.3s;
+      width: 100%; /* botão ocupa toda largura no celular */
     }
 
     button:hover {
@@ -91,28 +95,39 @@
       from {opacity: 0; transform: translateY(-20px);}
       to {opacity: 1; transform: translateY(0);}
     }
+
+    /* Ajustes para telas pequenas */
+    @media (max-width: 600px) {
+      header {
+        font-size: 18px;
+        flex-direction: column;
+      }
+      header img {
+        height: 30px;
+      }
+    }
   </style>
 </head>
 <body>
   <header>
-    <img src="logo.png" alt="Logo"> <!-- coloque seu arquivo de logo -->
-    Campanha de Ideias
+    <img src="tomas-logo.png" alt="Logo Tomas">
+    Tomas - Campanha de Ideias
   </header>
 
   <div class="container">
-    <h1>Preciso de sua Ajuda!</h1>
-    <p>Nos negócios, no ginásio, na escola ou no dia a dia, qual é a maior dificuldade que você enfrenta e acha que a tecnologia poderia ajudar? 💡</p>
+    <h1>Bem-vindo!</h1>
+    <p>Compartilhe sua sugestão e ajude a criar soluções incríveis 💡</p>
     <form id="form">
       <input type="text" id="nome" placeholder="Seu nome">
-      <textarea id="resposta" rows="4" placeholder="Digite  aqui sua dificuldade..."></textarea><br>
+      <textarea id="resposta" rows="4" placeholder="Digite sua ideia aqui..."></textarea><br>
       <button type="submit">Enviar pelo WhatsApp</button>
     </form>
     <p id="feedback" style="color:#4caf50; font-weight:bold; display:none;">✅ Obrigado pela sua ideia!</p>
   </div>
 
   <footer>
-    📱 WhatsApp:869276546  
-    <br>© 2026 Agencia Desevolvidora: Tomaz Tech
+    📱 WhatsApp: +25884XXXXXXX  
+    <br>© 2026 Tomas - Campanha de Ideias
   </footer>
 
   <script>
@@ -125,7 +140,7 @@
       if(nome) mensagem += "Nome: " + nome + "%0A";
       mensagem += "Ideia: " + resposta;
 
-      let numero = "258869276546"; // coloque seu número com código do país
+      let numero = "25884XXXXXXX"; // coloque seu número com código do país
       let url = "https://wa.me/" + numero + "?text=" + mensagem;
       window.open(url, "_blank");
 
